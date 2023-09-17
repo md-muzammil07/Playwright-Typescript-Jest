@@ -26,7 +26,7 @@ describe ("Learn how to handle input fields", ()=> {
         if(name!=null){
             name.type("")
         }
-        await name?.type("koushik chatterjee")
+        await name?.type("koushik chatterjee")  //? = optional chaininig
         
         
      })
