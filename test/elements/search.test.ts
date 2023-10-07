@@ -16,6 +16,9 @@ describe('Search git repo', () => {
 
   test('Enter Git username', async() => { 
 
+    const header = await page.$("nav[role='navigation']");
+    header?.screenshot({path: 'header.png'})
+
     const ele = await page.$("input[name='username']")
     await ele?.fill("ortonikc");
     await ele?.press("Enter");
@@ -38,9 +41,12 @@ test('Print all the repos', async() => {
              return await repo.innerText();
     }))
     console.log(allUrls);
+    await page.screenshot({path:"fs.png", fullPage:true})
 
+ })
 
-
+ afterEach(async () => {
+  await page.screenshot({path: Date.now() + 'screenshot1.png'})
  })
 
 
